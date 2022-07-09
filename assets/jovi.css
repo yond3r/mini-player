@@ -20,7 +20,7 @@ body {
     justify-content: center;
 }
 
-.music-container2 {
+.music-container {
     background-color: #fff;
     border-radius: 15px;
     box-shadow: 0 20px 20px 0 rgba(217, 210, 233, 0.6);
@@ -61,7 +61,7 @@ body {
     animation-play-state: paused;
 }
 
-.music-container1.play .img-container img {
+.music-container.play .img-container img {
     animation-play-state: running;
 
 }
@@ -76,7 +76,7 @@ body {
     }
 }
 
-.navigation1 {
+.navigation {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -119,12 +119,12 @@ action-btn:focus {
     margin: 0;
 }
 
-.music-container1.play .music-info {
+.music-container.play .music-info {
     opacity: 1;
     transform: translate(-100%);
 }
 
-.progress-container1 {
+.progress-container {
     background-color: #fff;
     border-radius: 5px;
     cursor: pointer;
@@ -133,7 +133,7 @@ action-btn:focus {
     width: 100%;
 }
 
-.progress1 {
+.progress {
     background-color: #8AA9BE;
     border-radius: 5px;
     height: 100%;

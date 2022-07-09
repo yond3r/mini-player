@@ -1,17 +1,17 @@
 console.log("test");
 
-const musicContainer = document.querySelector('.music-container1')
+const musicContainer = document.querySelector('.music-container')
 const playBtn = document.querySelector('#play')
 const prevBtn = document.querySelector('#prev')
 const nextBtn = document.querySelector('#next')
 const audio = document.querySelector('#audio')
-const progress1 = document.querySelector('.progress1')
-const progressContainer1 = document.querySelector('.progress-container1')
-const title = document.querySelector('#title1')
-const cover = document.querySelector('#natalie')
+const progress = document.querySelector('.progres')
+const progressContainer = document.querySelector('.progress-container')
+const title = document.querySelector('#title')
+// const cover = document.querySelector('#natalie')
 
 // Song titles -- via array
-const songs = ['Torn', 'Done', 'Two Black Cadillacs', 'Blackbird', 'Gold', 'Location', 'Love in the-Dark', 'Centuries', 'Cruise', 'Year 3000']
+const songs = ['Torn', 'Done.','Two Black Cadillacs', 'Blackbird', 'Gold', 'Location', 'Love in the Dark', 'Centuries', 'Cruise', 'Year 3000']
 
 //keep track of songs
 let songIndex = 9
@@ -51,9 +51,8 @@ function pauseSong(){
     audio.pause()
 }
 
-function prevSong(){
-    songIndex --
-
+function prevSong() {
+    songIndex--
 
 if (songIndex <0) {
     songIndex = songs.length - 1
@@ -63,7 +62,7 @@ if (songIndex <0) {
     playSong()
 }
 
-function nextSong(){
+function nextSong() {
     songIndex ++ 
 
     if (songIndex > songs.length - 1){
@@ -77,7 +76,16 @@ function nextSong(){
 }
 
 function updateProgress(e) {
-console.log(e.srcElement.currentTime)
+const {duration, currentTime} = e.srcElement
+const progressPrecent = (currentTime / duration) * 100
+progress.style.width = `${progressPrecent}%`
+
+function setProgress(e)
+    const width = this.clientWidth
+    const clickX = e.offsetX
+    const duration = audio.duration
+
+    audio.currentTime = (clickX / width) * duration
 }
 
 
@@ -97,3 +105,7 @@ prevBtn.addEventListener('click', prevSong)
 nextBtn.addEventListener('click', nextSong)
 
 audio.addEventListener('timeupdate', updateProgress)
+
+progressContainer.addEventListener('click', setProgress)
+
+audio.addEventListener('ended', nextSong)

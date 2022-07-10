@@ -101,7 +101,7 @@
   }
   
   .music-info {
-    background-color: rgba(25, 65, 102, 0.5);
+    background-color: rgba(176, 196, 222, 0.5);
     border-radius: 15px 15px 0 0;
     position: absolute;
     top: 0;
@@ -124,7 +124,7 @@
   }
   
   .progress-container {
-    background: #fff;
+    background: #4169E1;
     border-radius: 5px;
     cursor: pointer;
     margin: 10px 0;
@@ -133,7 +133,7 @@
   }
   
   .progress {
-    background-color: #a3b3c1;
+    background-color: #9dcff4;
     border-radius: 5px;
     height: 100%;
     width: 0%;

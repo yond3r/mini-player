@@ -92,7 +92,7 @@
     margin: 0px 20px;
 }
 
-.action-btn-big {
+.action-btn.action-btn-big {
     color: #937EA1;
     font-size: 30px;
 }
@@ -136,6 +136,6 @@ action-btn:focus {
     background-color: #fe8daa;
     border-radius: 5px;
     height: 100%;
-    width: 50%;
+    width: 0%;
     transition: width 0.1s linear;
 } 

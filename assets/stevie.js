@@ -11,8 +11,9 @@ const cover = document.getElementById('cover');
 const currTime = document.querySelector('#currTime');
 const durTime = document.querySelector('#durTime');
 
+
 // Song titles 
-const songs = ['Every Time the Sun Comes Up', 'Heartbreak Junky', 'Black Sail', 'Dark Child', 'Sweet Feeling', 'Every Feeling', 'Porz Goret', 'give me The ground', 'Imaging My Man', 'Heart Shaped Face'];
+const songs = ["Every Time the Sun Comes Up", "Heartbreak Junky", "Black Sail", "Dark Child", "Sweet Feeling", "Every Feeling", "Porz Goret", "give me The ground", "Imaging My Man", "Heart Shaped Face"];
 
 //keeping track of songs
 let songIndex = 9;
@@ -22,18 +23,9 @@ loadSong(songs[songIndex]);
 
 //update song details
 function loadSong(song) {
-    title.innerText = song;
-    audio.src = `music/Every Time the Sun Comes Up.mp3`;
-    audio.src = `music/Heartbreak Junky.mp3`;
-    audio.src = `music/Black Sail.mp3`;
-    audio.src = `music/Dark Child.mp3`;
-    audio.src = `music/Sweet Feeling.mp3`;
-    audio.src = `music/Every Feeling.mp3`;
-    audio.src = `music/Porz Goret.mp3`;
-    audio.src = `music/give me The ground.mp3`;
-    audio.src = `music/Imaging My Man.mp3`;
-    audio.src = `music/Heart Shaped Face.mp3`;
-    // cover.src = `images/${song}.jpg`
+  title.innerText = song;
+  audio.src = `music/${song}.mp3`;
+  // cover.src = `images/${song}.jpg`;
 }
 
 // Play song
@@ -95,7 +87,6 @@ function setProgress(e) {
 
   audio.currentTime = (clickX / width) * duration;
 }
-
 
 // Event listeners
 playBtn.addEventListener('click', () => {

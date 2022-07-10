@@ -1,104 +1,128 @@
-const musicContainer = document.querySelector('.music-container');
-const playBtn = document.querySelector('#play');
-const prevBtn = document.querySelector('#prev');
-const nextBtn = document.querySelector('#next');
-const audio = document.querySelector('#audio');
-const progress = document.querySelector('.progress');
-const progressContainer = document.querySelector('.progress-container');
-const title = document.querySelector('#title');
-// const cover = document.querySelector('#heart');
+const musicContainer = document.getElementById('music-container');
+const playBtn = document.getElementById('play');
+const prevBtn = document.getElementById('prev');
+const nextBtn = document.getElementById('next');
 
-// Song titles -- via array
-const songs = ['Torn', 'Done.','Two Black Cadillacs', 'Blackbird', 'Gold', 'Location', 'Love in the Dark', 'Centuries', 'Cruise', 'Year 3000'];
+const audio = document.getElementById('audio');
+const progress = document.getElementById('progress');
+const progressContainer = document.getElementById('progress-container');
+const title = document.getElementById('title');
+const cover = document.getElementById('cover');
+const currTime = document.querySelector('#currTime');
+const durTime = document.querySelector('#durTime');
 
-//keep track of songs
+// Song titles -- via array -- several hours later and SEVERAL mistakes later, I am just now realing these need to be in quotes to play lol 
+const songs = ["Torn", "Done.","Two Black Cadillacs", "Blackbird", "Gold", "Location", "Love in the Dark", "Centuries", "Cruise", "Year 3000"];
+
+// Keep track of song
 let songIndex = 9;
 
-// Initially load songs info DOM
+// Initially load song details into DOM
 loadSong(songs[songIndex]);
 
-//update song details
+// Update song details
+// Update song details
 function loadSong(song) {
-    title.innerText = song;
-    audio.src = `music/${song}.mp3`;
+  title.innerText = song;
+  audio.src = `music/${song}.mp3`;
+  // cover.src = `images/${song}.jpg`;
 }
 
-function playSong(){
-    musicContainer.classList.add('play');
-    playBtn.querySelector('i.fas').classList.remove('fa-play');
-    playBtn.querySelector('i.fas').classList.add('fa-pause');
+// Play song
+function playSong() {
+  musicContainer.classList.add('play');
+  playBtn.querySelector('i.fas').classList.remove('fa-play');
+  playBtn.querySelector('i.fas').classList.add('fa-pause');
 
-    audio.play()
+  audio.play();
 }
 
-function pauseSong(){
-    musicContainer.classList.remove('play');
-    playBtn.querySelector('i.fas').classList.add('fa-play');
-    playBtn.querySelector('i.fas').classList.remove('fa-pause');
+// Pause song
+function pauseSong() {
+  musicContainer.classList.remove('play');
+  playBtn.querySelector('i.fas').classList.add('fa-play');
+  playBtn.querySelector('i.fas').classList.remove('fa-pause');
 
-    audio.pause();
+  audio.pause();
 }
 
+// Previous song
 function prevSong() {
-    songIndex--;
+  songIndex--;
 
-if (songIndex < 0) {
+  if (songIndex < 0) {
     songIndex = songs.length - 1;
-}
-    loadSong(songs[songIndex]);
+  }
 
-    playSong();
+  loadSong(songs[songIndex]);
+
+  playSong();
 }
 
+// Next song
 function nextSong() {
-    songIndex++;
+  songIndex++;
 
-    if (songIndex > songs.length - 1){
-        songIndex = 0;
-    }
+  if (songIndex > songs.length - 1) {
+    songIndex = 0;
+  }
 
-    loadSong(songs[songIndex]);
+  loadSong(songs[songIndex]);
 
-    playSong();
+  playSong();
 }
 
-//progress bar updates
+// Update progress bar
 function updateProgress(e) {
-const { duration, currentTime } = e.srcElement;
-const progressPrecent = (currentTime / duration) * 100;
-progress.style.width = `${progressPrecent}%`;
-
-
-//set progress bar
-function setProgress(e) {
-    const width = this.clientWidth;
-    const clickX = e.offsetX;
-    const duration = audio.duration;
-
-    audio.currentTime = (clickX / width) * duration;
+  const { duration, currentTime } = e.srcElement;
+  const progressPercent = (currentTime / duration) * 100;
+  progress.style.width = `${progressPercent}%`;
 }
 
+// Set progress bar
+function setProgress(e) {
+  const width = this.clientWidth;
+  const clickX = e.offsetX;
+  const duration = audio.duration;
+
+  audio.currentTime = (clickX / width) * duration;
+}
+
+//get duration & currentTime for Time of song
+function DurTime (e) {
+	const {duration,currentTime} = e.srcElement;
+	var sec;
+	var sec_d;
+
+	// define minutes currentTime
+	let min = (currentTime==null)? 0:
+	 Math.floor(currentTime/60);
+	 min = min <10 ? '0'+min:min;
+}
 
 // Event listeners
 playBtn.addEventListener('click', () => {
-    const isPlaying = musicContainer.classList.contains('play');
+  const isPlaying = musicContainer.classList.contains('play');
 
-    if(isPlaying) {
-        pauseSong();
-    } else {
-        playSong();
-    }
+  if (isPlaying) {
+    pauseSong();
+  } else {
+    playSong();
+  }
 });
 
-// change song events
+// Change song
 prevBtn.addEventListener('click', prevSong);
 nextBtn.addEventListener('click', nextSong);
 
-//time updates
+// Time/song update
 audio.addEventListener('timeupdate', updateProgress);
 
-//progress bar clicks
+// Click on progress bar
 progressContainer.addEventListener('click', setProgress);
 
-//time of song
-audio.addEventListener('ended', nextSong)};
+// Song ends
+audio.addEventListener('ended', nextSong);
+
+// Time of song
+audio.addEventListener('timeupdate', durTime);

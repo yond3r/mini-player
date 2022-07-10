@@ -12,7 +12,7 @@ const currTime = document.querySelector('#currTime');
 const durTime = document.querySelector('#durTime');
 
 // Song titles
-const songs = ['Talk', 'Almost (Sweet Music)', 'Howl', 'Bon, Bon', 'Superpower', 'For the Love of God', 'California Love', 'Ghetto Gospel', 'The Bitch is Back', 'Vampire Money'];
+const songs = ["Talk", "Almost (Sweet Music)", "Howl", "Bon, Bon", "Superpower", "For the Love of God", "California Love", "Ghetto Gospel", "The Bitch is Back", "Vampire Money"];
 
 // Keep track of song
 let songIndex = 9;
@@ -21,20 +21,11 @@ let songIndex = 9;
 loadSong(songs[songIndex]);
 
 // Update song details
+// Update song details
 function loadSong(song) {
   title.innerText = song;
-  audio.src = `music/Talk.mp3`;
-//   audio.src = `music/Talk.mp3`;
-  audio.src = `music/Almost (Sweet Music).mp3`;
-//   audio.src = `music/Howl.mp3`;
-//   audio.src = `music/Bon, Bon.mp3`;
-//   audio.src = `music/Superpower.mp3`;
-//   audio.src = `music/For the Love of God.mp3`;
-//   audio.src = `music/California Love (feat. Roger Troutman & Dr. Dre).mp3`;
-//   audio.src = `music/Ghetto Gospel.mp3`;
-//   audio.src = `music/The Bitch is Back.mp3`;
-//   audio.src = `music/Vampire Money.mp3`;
-//   cover.src = `images/${song}.jpg`;
+  audio.src = `music/${song}.mp3`;
+  // cover.src = `images/${song}.jpg`;
 }
 
 // Play song
@@ -134,4 +125,4 @@ progressContainer.addEventListener('click', setProgress);
 audio.addEventListener('ended', nextSong);
 
 // Time of song
-audio.addEventListener('timeupdate',DurTime);
+audio.addEventListener('timeupdate', durTime);

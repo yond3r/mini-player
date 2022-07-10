@@ -13,7 +13,7 @@ const durTime = document.querySelector('#durTime');
 
 
 // Song titles 
-const songs = ["Every Time the Sun Comes Up", "Heartbreak Junky", "Black Sail", "Dark Child", "Sweet Feeling", "Every Feeling", "Porz Goret", "give me The ground", "Imaging My Man", "Heart Shaped Face"];
+const songs = ["Every Time the Sun Comes Up", "Heartbreak Junky", "Black Sail", "Dark Child", "Sweet Feeling", "Every Feeling", "Porz Goret", "give me The ground", "Imagining My Man", "Heart Shaped Face"];
 
 //keeping track of songs
 let songIndex = 9;

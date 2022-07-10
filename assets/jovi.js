@@ -12,7 +12,7 @@ const currTime = document.querySelector('#currTime');
 const durTime = document.querySelector('#durTime');
 
 // Song titles
-const songs = ["Talk", "Almost (Sweet Music)", "Howl", "Bon, Bon", "Superpower", "For the Love of God", "California Love", "Ghetto Gospel", "The Bitch is Back", "Vampire Money"];
+const songs = ["Talk", "Almost (Sweet Music)", "Howl", "Bon, Bon", "Superpower", "For the Love of God", "California Love (feat. Roger Troutman & Dr. Dre)", "Ghetto Gospel", "The Bitch is Back", "Vampire Money"];
 
 // Keep track of song
 let songIndex = 9;

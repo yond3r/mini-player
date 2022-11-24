@@ -3,6 +3,23 @@
 * {
     box-sizing: border-box;
   }
+
+  header {
+    display:block;
+    position:fixed;
+    top: 0;
+    left: 0;
+    width: 40px;
+    overflow:visible;
+    z-index:20000;
+}
+header .wrapper {
+    position: fixed;
+    padding-top: 0px;
+    padding-bottom: 20px;
+    height: 60px;
+    /* float:right; */
+}
   
   body {
     background-image: linear-gradient(
@@ -18,6 +35,50 @@
     font-family: 'Lato', sans-serif;
     margin: 0;
   }
+
+  .home{
+    background-color: #e78ed7;
+    border-radius: 8px;
+    border-style: none;
+    box-sizing: border-box;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 500;
+    /* height: 40px; */
+    line-height: 20px;
+    list-style: none;
+    margin: 0;
+    outline: none;
+    padding: 10px 16px;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    transition: color 100ms;
+    vertical-align: baseline;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+  }
+  
+  .home:after {
+      width: 150px;
+      height: 76px;
+      line-height: 78px;
+      font-size: 20px;
+      font-family: 'Bebas Neue', sans-serif;
+      background: linear-gradient(45deg, transparent 5%, #490748 5%);
+      border: 0;
+      color: #fff;
+      letter-spacing: 3px;
+      box-shadow: 6px 0px 0px #00E6F6;
+      outline: transparent;
+      position: relative;
+      user-select: none;
+      -webkit-user-select: none;
+      touch-action: manipulation;
+    }
   
   .music-container {
     background-color: #fff;
